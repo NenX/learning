@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript">
+			
+
+		var say = function(x,dosth){
+			ck  = function (data) {
+					dosth(data[x])
+				}
+			window.addEventListener('DOMContentLoaded',function(){
+				
+				var b = document.querySelector('body');
+				var s = document.createElement('script');
+				var url = 'http://api.money.126.net/data/feed/' +x+'?callback=ck';
+				s.setAttribute('src',url);
+				b.appendChild(s);
+				
+			})
+		}
+			say('0000001',function(x){alert(x.name+':'+x.price)})
+		</script>
+
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,18 @@
+## {}.toString()为什么报错
+```js
+	11..toString();             //'11'
+	[11].toString();            // '11'
+	(new Object()).toString();  //"[object Object]"
+	var a = {};a.toString();    //"[object Object]"
+	({}).toString();            //"[object Object]"
+	{}toString();               //"[object Undefined]"
+	
+```
+## 为什么typeof的O小写，而Array.valueOf的大写
+## css影响js:
+```css
+/* 这会导致window.onscroll不能被触发*/
+html,body{
+    height:100%;
+}
+```

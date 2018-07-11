@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .demo {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .demo div {
+      height: 100px;
+    }
+
+    .left {
+      width: 100px;
+      background: red;
+    }
+
+    .right {
+      background: yellow;
+    }
+
+    #demo1 .left {
+      float: left;
+    }
+
+    #demo1 .right {
+      margin-left: 100px;
+    }
+
+    #demo2 .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 100px;
+      bottom: 0;
+    }
+
+    #demo3 {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    #demo3 .right {
+      flex-grow: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="demo1" class="demo">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div id="demo2" class="demo">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+  <div id="demo3" class="demo">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+var fs = require('fs')
+var readStream = fs.createReadStream('./压缩/gzip.txt.gz')
+var writeStream = fs.createWriteStream('./解压/gunzip.txt','UTF8')
+var zlib = require('zlib')
+var gunzip = zlib.createGunzip()
+readStream.pipe(gunzip).pipe(writeStream)

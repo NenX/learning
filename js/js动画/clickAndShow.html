@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box1{
+				height:50px;
+				width:40%:
+				margin:0 auto;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				position:relative;
+				top:100px;
+			}
+			.box2{
+				height:50px;
+				width:40%:
+				margin:0 auto;
+				display: flex;
+				justify-content: flex-start;
+			}
+			.box1 div,.box2 div{
+				width: 18%;
+				height: 100%;
+				background: #eee;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.box1 .active{
+				background:#000;
+				color:#fff;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div class="box1">
+				<div>一</div>
+				<div>二</div>
+				<div>三</div>
+				<div>四</div>
+				<div>五</div>
+				
+			</div>
+			<div class="box2">
+				
+			</div>
+		</div>
+	<script>
+		window.onload = function(){
+			var box1Div = document.getElementsByClassName('box1')[0].childNodes;
+			var box2 = document.querySelector('.box2');
+			var box2Div = box2.childNodes;
+			for(var i =0;i<box1Div.length;i++){
+				box1Div[i].index = i;
+				box1Div[i].addEventListener('click',function(){
+					if(!this.status){
+						this.className = 'active';
+						this.status = true;
+						var newE = document.createElement('div');
+						newE.innerHTML = this.innerHTML;
+						newE.className = 'c'+this.index;
+						newE.addEventListener('click',function () {
+							box2.removeChild(this);
+							box1Div[this.className[1]].className='';
+							box1Div[this.className[1]].status=false;
+							
+						})
+						box2.appendChild(newE);
+					}else{
+						this.className = '';
+						this.status = false;
+						box2.removeChild(document.querySelector('.c'+this.index))
+					}
+				})
+			}
+		}
+	</script>
+	</body>
+</html>

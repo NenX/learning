@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width:100px;
+				height:100px;
+				position:fixed;
+				background:rgba(0,255,255,1);
+				
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			window.onload = function () {
+				var box = document.getElementById('box');
+				var origin_l,
+					origin_t,
+					origin_x,
+					origin_y;
+				box.addEventListener('mousedown',function (e) {
+					origin_l = box.offsetLeft;
+					origin_t = box.offsetTop;
+					origin_x = e.clientX;
+					origin_y = e.clientY;
+					
+					//注意！第一次写吧mousemove、mouseup绑定在box导致出现卡顿！！！
+					document.addEventListener('mousemove',move,false);
+					document.addEventListener('mouseup',function (e) {
+						document.removeEventListener('mousemove',move,false)			
+					});
+				});
+				function move (e) {				
+					box.style.left = origin_l + e.clientX - origin_x +'px';
+					box.style.top = origin_t + e.clientY - origin_y + 'px';			
+				}
+
+
+
+
+//				oDiv.onmousedown = function(oEv) {
+//				
+//				var x = oEv.clientX - oDiv.offsetLeft;
+//				var y = oEv.clientY - oDiv.offsetTop;
+//				document.onmousemove = function(oEv) {
+//					
+//					var l = oEv.clientX - x;
+//					var t = oEv.clientY - y;
+//					
+//					oDiv.style.left = l + 'px';
+//					oDiv.style.top = t + 'px';
+//				}
+//				document.onmouseup = function() {
+//					
+//					document.onmousemove = null;
+//				}
+				
+				
+				
+			}
+		</script>
+	</body>
+</html>

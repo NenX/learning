@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/NenX/learning/issues"
   },
-  "homepage": "https://github.com/NenX/learning#readme"
+  "homepage": "https://github.com/NenX/learning#readme",
+  "devDependencies": {}
 }
